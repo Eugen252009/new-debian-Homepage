@@ -119,23 +119,27 @@
 		<div class="grid-cols-1 gap-8 px-8 my-6 md:grid-cols-2 md:grid">
 			<div class="grid items-center grid-cols-3 gap-8 mt-4 text-ellipsis">
 				<Calender year={2023} month="Juni" date={10} />
-				<a href="/" class="col-span-2">Debian 12 Bookworm veröffentlicht</a>
+				<a href="/" class="hover:underline col-span-2">Debian 12 Bookworm veröffentlicht</a>
 			</div>
 			<div class="grid items-center grid-cols-3 gap-8 mt-4 text-ellipsis">
 				<Calender year={2023} month="April" date={29} />
-				<a href="/" class="col-span-2">Debian 11 aktualisiert: 11.7 veröffentlicht</a>
+				<a href="/" class="hover:underline col-span-2"
+					>Debian 11 aktualisiert: 11.7 veröffentlicht</a
+				>
 			</div>
 			<div class="grid items-center grid-cols-3 gap-8 mt-4 text-ellipsis">
 				<Calender year={2022} month="September" date={10} />
-				<a href="/" class="col-span-2">Debian 10 aktualisiert: 10.13 veröffentlicht</a>
+				<a href="/" class="hover:underline col-span-2"
+					>Debian 10 aktualisiert: 10.13 veröffentlicht</a
+				>
 			</div>
 			<div class="grid items-center grid-cols-3 gap-8 mt-4 text-ellipsis">
 				<Calender year={2022} month="August" date={7} />
-				<a href="/" class="col-span-2">Besitz der Domain debian.community</a>
+				<a href="/" class="hover:underline col-span-2">Besitz der Domain debian.community</a>
 			</div>
 			<div class="grid items-center grid-cols-3 gap-8 mt-4">
 				<Calender year={2022} month="Juli" date={24} />
-				<a href="/" class="block col-span-2 truncate">
+				<a href="/" class="hover:underline block col-span-2 truncate">
 					DebConf22 schließt in Prizren, Datum der DebConf23 bekanntgegeben
 				</a>
 			</div>
