@@ -9,7 +9,6 @@
 	import UserPlus from '../assets/svg/user-plus.svelte';
 	import Users from '../assets/svg/users.svelte';
 	import Items from './Items.svelte';
-	function handleMenu() {}
 </script>
 
 <div class="flex flex-col">
@@ -19,7 +18,7 @@
 		</a>
 	</div>
 	<div
-		class="grid items-center justify-between grid-cols-4 gap-3 text-center text-white md:flex md:w-full md:flex-row bg-debian-background"
+		class="grid items-center justify-between grid-cols-4 gap-3 text-center sm:pt-2 text-white md:flex md:w-full md:flex-row bg-debian-background"
 	>
 		<a
 			href="/"
@@ -36,7 +35,11 @@
 		<div
 			class="mx-4 flex order-5 col-span-4 gap-1 px-4 my-2 text-white bg-gray-400 outline-none md:order-none bg-debian-background placeholder:text-gray-200 bg-opacity-60 rounded-3xl justify-around"
 		>
-			<input placeholder="Search" type="text" class="py-2 bg-transparent outline-none md:my-1" />
+			<input
+				placeholder="Search"
+				type="text"
+				class="py-2 w-full bg-transparent outline-none md:my-1"
+			/>
 			<a href="/" id="search" class="flex items-center">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
