@@ -4,12 +4,12 @@
 	export let date = 12;
 </script>
 
-<div class="flex flex-col w-full bg-gray-100 p-0.5">
-	<div class="px-8 w-full text-center bg-gradient-to-br from-[#b60109] to-[#a00] text-white">
+<div class="flex flex-col w-full min-w-[10ch] bg-gray-100 p-0.5">
+	<div class="text-center bg-gradient-to-br from-[#b60109] to-[#a00] text-white text-sm">
 		{month}
 	</div>
 	<div class="bg-gradient-to-br from-[#fff] to-[#eee]">
-		<div class="px-8 w-full text-xl font-semibold text-center">{date}</div>
-		<div class="px-8 w-full text-center">{year}</div>
+		<div class="w-full md:text-xl font-semibold text-center">{date}</div>
+		<div class="w-full text-center">{year}</div>
 	</div>
 </div>

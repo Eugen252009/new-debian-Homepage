@@ -9,48 +9,35 @@
 	import UserPlus from '../assets/svg/user-plus.svelte';
 	import Users from '../assets/svg/users.svelte';
 	import Items from './Items.svelte';
-	//
-	let search = '';
-	/**
-	 * @param {MouseEvent & { currentTarget: EventTarget & HTMLButtonElement; }} event
-	 */
-	function clicked(event) {
-		console.log(event?.target?.id ?? '');
-		console.log(event?.target?.value ?? '');
-	}
+	function handleMenu() {}
 </script>
-
-<div />
 
 <div class="flex flex-col">
 	<div class="flex flex-col w-full bg-debian-background h-28">
-		<div class="flex items-center justify-center w-full bg-center bg-no-repeat h-28">
+		<a href="/" class="flex items-center justify-center w-full bg-center bg-no-repeat h-28">
 			<DebianImage />
-		</div>
+		</a>
 	</div>
-	<div class="flex items-center justify-between w-full px-12 text-white bg-debian-background">
-		<button
+	<div
+		class="grid items-center justify-between grid-cols-4 gap-3 text-center text-white md:flex md:w-full md:flex-row bg-debian-background"
+	>
+		<a
+			href="/"
 			id="Debian"
-			on:click={clicked}
 			class="relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>Debian</button
+			>Debian</a
 		>
-		<button
+		<a
+			href="/"
 			id="Blog"
-			on:click={clicked}
 			class="relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>Blog</button
+			>Blog</a
 		>
 		<div
-			class="relative bg-debian-background flex px-4 text-white bg-gray-400 outline-none placeholder:text-gray-200 bg-opacity-60 rounded-3xl my-2 gap-1"
+			class="mx-4 flex order-5 col-span-4 gap-1 px-4 my-2 text-white bg-gray-400 outline-none md:order-none bg-debian-background placeholder:text-gray-200 bg-opacity-60 rounded-3xl justify-around"
 		>
-			<input
-				bind:value={search}
-				placeholder="Search"
-				type="text"
-				class="bg-transparent outline-none py-2 my-1"
-			/>
-			<button id="search" on:click={clicked} class="">
+			<input placeholder="Search" type="text" class="py-2 bg-transparent outline-none md:my-1" />
+			<a href="/" id="search" class="flex items-center">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -64,19 +51,19 @@
 					class="lucide lucide-search"
 					><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg
 				>
-			</button>
+			</a>
 		</div>
-		<button
+		<a
+			href="/"
 			id="micronews"
-			on:click={clicked}
 			class="relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>Micronews</button
+			>Micronews</a
 		>
-		<button
+		<a
+			href="/"
 			id="planet"
-			on:click={clicked}
 			class="relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>Planet</button
+			>Planet</a
 		>
 	</div>
 	<div class="grid grid-cols-1 md:grid-cols-2">
@@ -86,7 +73,7 @@
 			</p>
 			<p class="text-center">Debian ist eine Gemeinschaft von Menschen</p>
 			<div>
-				<img class="p-4" src="/calamares-bookworm.png" alt="" />
+				<img class="p-4" src="/calamares-bookworm.png" alt="Debian Logo" />
 				<Items title="Menschen" description="Wer wir sind und was wir tun"><Users /></Items>
 				<Items title="Unsere Philosophie" description="Warum und wie wir es tun"><UserPlus /></Items
 				>
@@ -99,7 +86,7 @@
 				>
 			</div>
 		</div>
-		<div class="">
+		<div class="flex flex-col">
 			<p class="text-center uppercase tracking-[6px] text-2xl font-semibold my-6">
 				Das Betriebssystem
 			</p>
@@ -129,29 +116,31 @@
 		</p>
 		<p class="text-center">Neuigkeiten und Ankündigungen über Debian</p>
 
-		<div class="grid grid-cols-2 gap-4 px-8 my-6">
-			<div class="grid items-center grid-cols-3 gap-4">
+		<div class="grid-cols-1 gap-8 px-8 my-6 md:grid-cols-2 md:grid">
+			<div class="grid items-center grid-cols-3 gap-8 mt-4 text-ellipsis">
 				<Calender year={2023} month="Juni" date={10} />
-				<p class="col-span-2">Debian 12 Bookworm veröffentlicht</p>
+				<a href="/" class="col-span-2">Debian 12 Bookworm veröffentlicht</a>
 			</div>
-			<div class="grid items-center grid-cols-3 gap-4">
+			<div class="grid items-center grid-cols-3 gap-8 mt-4 text-ellipsis">
 				<Calender year={2023} month="April" date={29} />
-				<p class="col-span-2">Debian 11 aktualisiert: 11.7 veröffentlicht</p>
+				<a href="/" class="col-span-2">Debian 11 aktualisiert: 11.7 veröffentlicht</a>
 			</div>
-			<div class="grid items-center grid-cols-3 gap-4">
+			<div class="grid items-center grid-cols-3 gap-8 mt-4 text-ellipsis">
 				<Calender year={2022} month="September" date={10} />
-				<p class="col-span-2">Debian 10 aktualisiert: 10.13 veröffentlicht</p>
+				<a href="/" class="col-span-2">Debian 10 aktualisiert: 10.13 veröffentlicht</a>
 			</div>
-			<div class="grid items-center grid-cols-3 gap-4">
+			<div class="grid items-center grid-cols-3 gap-8 mt-4 text-ellipsis">
 				<Calender year={2022} month="August" date={7} />
-				<p class="col-span-2">Besitz der Domain debian.community</p>
+				<a href="/" class="col-span-2">Besitz der Domain debian.community</a>
 			</div>
-			<div class="grid items-center grid-cols-3 gap-4">
+			<div class="grid items-center grid-cols-3 gap-8 mt-4">
 				<Calender year={2022} month="Juli" date={24} />
-				<p class="col-span-2">DebConf22 schließt in Prizren, Datum der DebConf23 bekanntgegeben</p>
+				<a href="/" class="block col-span-2 truncate">
+					DebConf22 schließt in Prizren, Datum der DebConf23 bekanntgegeben
+				</a>
 			</div>
 		</div>
-		<div class="flex items-center justify-evenly mb-8">
+		<div class="flex items-center mb-8 justify-evenly">
 			<a
 				href="/"
 				class="text-xl relative before:bg-black before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex font-semibold"
@@ -164,159 +153,40 @@
 		</div>
 	</div>
 
-	<div class="px-4 bg-debian-background text-white pt-4">
+	<div class="px-4 pt-4 text-white bg-debian-background">
 		<p>Diese Seite gibt es auch in den folgenden Sprachen:</p>
-		<div class="grid items-center grid-cols-5 gap-4 my-4">
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				بية (Arabiya)
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Български
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				(Bəlgarski)
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				català
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				dansk
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Ελληνικά (Ellinika)
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				English
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				español
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				فارسی (Farsi)
-			</p>
-
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				français
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Galego
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Հայերեն (hayeren)
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Indonesia
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Italiano
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				한국어 (Korean)
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				magyar
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Nederlands
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				norsk (bokmål)
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				polski
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Português
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Русский (Russkij)
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				suomi
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				svenska
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Tiếng
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				Việt
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				українська (ukrajins'ka)
-			</p>
-
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				中文(简)
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				中文(HK)
-			</p>
-			<p
-				class=" w-max relative before:bg-white before:absolute before:scale-0 before:bottom-0 before:left-0 before:right-0 before:h-0.5 before:origin-left before:hover:scale-100 before:duration-200 before:flex"
-			>
-				中文(繁)
-			</p>
+		<div class="flex flex-wrap items-center grid-cols-1 gap-2 my-4 md:grid md:grid-cols-5">
+			<a href="/" class="underline w-max">بية (Arabiya)</a>
+			<a href="/" class="underline w-max">Български (Bəlgarski)</a>
+			<a href="/" class="underline w-max">català</a>
+			<a href="/" class="underline w-max">dansk</a>
+			<a href="/" class="underline w-max">Ελληνικά (Ellinika)</a>
+			<a href="/" class="underline w-max">English</a>
+			<a href="/" class="underline w-max">español</a>
+			<a href="/" class="underline w-max">فارسی (Farsi)</a>
+			<a href="/" class="underline w-max">français</a>
+			<a href="/" class="underline w-max">Galego</a>
+			<a href="/" class="underline w-max">Հայերեն (hayeren)</a>
+			<a href="/" class="underline w-max">Indonesia</a>
+			<a href="/" class="underline w-max">Italiano</a>
+			<a href="/" class="underline w-max">한국어 (Korean)</a>
+			<a href="/" class="underline w-max">magyar</a>
+			<a href="/" class="underline w-max">Nederlands</a>
+			<a href="/" class="underline w-max">norsk (bokmål)</a>
+			<a href="/" class="underline w-max">polski</a>
+			<a href="/" class="underline w-max">Português</a>
+			<a href="/" class="underline w-max">Русский (Russkij)</a>
+			<a href="/" class="underline w-max">suomi</a>
+			<a href="/" class="underline w-max">svenska</a>
+			<a href="/" class="underline w-max">Tiếng</a>
+			<a href="/" class="underline w-max">Việt</a>
+			<a href="/" class="underline w-max">українська (ukrajins'ka)</a>
+			<a href="/" class="underline w-max">中文(简)</a>
+			<a href="/" class="underline w-max">中文(HK)</a>
+			<a href="/" class="underline w-max">中文(繁)</a>
 		</div>
 	</div>
-	<div class="bg-debian-background text-white p-2">
+	<div class="p-2 pb-4 text-white bg-debian-background">
 		Schauen Sie auf unsere <a class="underline" href="/"> Kontaktseite</a>, um mit uns in Verbindung
 		zu treten. Der Quelltext der Website ist öffentlich
 		<a class="underline" href="/">verfügbar</a>.<br />
